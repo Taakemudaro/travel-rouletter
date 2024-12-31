@@ -32,10 +32,15 @@ const SRouletteObject = styled.div`
 const SRouletteResultGroup = styled.div`
   display: flex;
   flex-direction: column;
-  width: 350px;
   position: absolute;
   top: 140px;
   left: 90px;
+
+  @media (max-width: 1000px) {
+    top: 80px;
+    left: 66px;
+    width: 60%;
+  }
 `;
 
 const SRouletteOptionList = styled.div`

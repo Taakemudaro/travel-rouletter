@@ -12,9 +12,13 @@ export const Footer: FC = memo(() => {
 });
 
 const SFooter = styled.div`
-  // margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
 `;
 
 const SFooterSmall = styled.small`
-  margin: 0 20px;
+  margin: 4px 20px 4px 20px;
 `;
