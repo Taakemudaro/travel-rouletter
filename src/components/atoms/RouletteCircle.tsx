@@ -11,4 +11,10 @@ const SRouletteCircle = styled.div`
   border-radius: 50%;
   width: 460px;
   height: 460px;
+
+  @media (max-width: 1000px) {
+    width: 280px;
+    height: 280px;
+    border: 30px solid #8b0000;
+  }
 `;

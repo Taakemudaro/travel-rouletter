@@ -37,11 +37,24 @@ const SRouletteResult = styled(SRouletteBaseResult)`
   background-color: #cd853f;
   padding: 30px 0px;
   margin: 10px;
+
+  @media (max-width: 1000px) {
+    padding: 15px 0px;
+    font-size: 20px;
+    width: 95%;
+    margin: 5px;
+  }
 `;
 
 const SRouletteOptionResult = styled(SRouletteBaseResult)`
   font-size: 13px;
   background-color: #ffdead;
   padding: 15px 0;
-  margin: 10px 10px;
+  margin: 10px;
+
+  @media (max-width: 1000px) {
+    font-size: 13px;
+    width: 90%;
+    margin: 5px;
+  }
 `;

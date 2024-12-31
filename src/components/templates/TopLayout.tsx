@@ -15,11 +15,15 @@ export const TopLayout: FC<TopProps> = memo((props) => {
       {/* <p>{props.title}</p> */}
       <SPageLayout>
         <SLeftLayout>
-          <SMainLogo src="#" alt="main-logo" />
-          <SLinkHowToUse href="/how-to-use">
-            ルーレットの利用方法はこちらをクリックしてね！
-          </SLinkHowToUse>
-          <RouletteSettingButton />
+          <SResponsiveLayout>
+            <SMainLogo src="#" alt="main-logo" />
+            <SResponsiveLink>
+              <SLinkHowToUse href="/how-to-use">
+                ルーレットの利用方法はこちらをクリックしてね！
+              </SLinkHowToUse>
+              <RouletteSettingButton />
+            </SResponsiveLink>
+          </SResponsiveLayout>
           <RouletteButton />
         </SLeftLayout>
         <SRightLayout>
@@ -31,25 +35,61 @@ export const TopLayout: FC<TopProps> = memo((props) => {
   );
 });
 
+// 1000px以下の画面設定
+const SResponsiveLayout = styled.div`
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+const SResponsiveLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 1000px) {
+    margin: 10px;
+    width: 65%;
+  }
+`;
+
+// All画面設定
 const SPageLayout = styled.div`
   display: flex;
   flex: 1;
-  margin: 1% 0;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    margin: 20px 0px;
+    height: 83vh;
+  }
 `;
 
 const SLeftLayout = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 30%;
-  margin: 110px 0px 20px 140px;
+  align-items: flex-end;
+  justify-content: center;
+  width: 37%;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 const SRightLayout = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
-  width: 60%;
-  margin: 40px 10px 60px 10px;
+  width: 64%;
+
+  @media (max-width: 1000px) {
+    width: 80%;
+    margin: 20px 0;
+  }
 `;
 
 const SMainLogo = styled.img`
@@ -57,6 +97,11 @@ const SMainLogo = styled.img`
   background-color: #808080;
   padding: 90px 100px;
   margin: 0 0 35px 0;
+
+  @media (max-width: 1000px) {
+    padding: 30px 10px;
+    width: 35%;
+  }
 `;
 
 const SLinkHowToUse = styled.a`
@@ -64,4 +109,8 @@ const SLinkHowToUse = styled.a`
   text-decoration: none;
   font-weight: 800;
   margin: 2px 0;
+
+  @media (max-width: 1000px) {
+    font-size: 8px;
+  }
 `;

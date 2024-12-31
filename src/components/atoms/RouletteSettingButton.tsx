@@ -26,6 +26,10 @@ const SRouletteSettingButton = styled.button`
     background-color: ${(props) =>
       props.theme.styles.button.sub.pointerBackGroundColor};
   }
+
+  @media (max-width: 1000px) {
+    font-size: 9px;
+  }
 `;
 
 const SLinkSetting = styled(Link)`

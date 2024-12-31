@@ -29,9 +29,21 @@ const SRouletteButton = styled.button`
     background-color: ${(props) =>
       props.theme.styles.button.main.pointerBackGroundColor};
   }
+
+  @media (max-width: 1000px) {
+    font-size: 12px;
+    padding: 7px 20px;
+    margin: 0;
+  }
 `;
 
 const SSpanStart = styled.span`
   font-size: 46px;
   line-height: 1.2;
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+    padding: 7px 40px;
+    line-height: 0.4;
+  }
 `;
