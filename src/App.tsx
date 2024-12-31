@@ -26,6 +26,6 @@ export default App;
 const SGlobalStyle = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme.styles.body.backgroundColor};
-    color: ${(props) => props.theme.styles.body.color};
+    color: ;
   }
 `;
