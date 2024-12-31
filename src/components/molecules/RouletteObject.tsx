@@ -1,0 +1,44 @@
+import { FC, memo } from "react";
+import styled from "styled-components";
+import { RouletteOptionResult, RouletteResult } from "../atoms/RouletteResult";
+import { RouletteCircle } from "../atoms/RouletteCircle";
+
+/**
+ * ルーレットオブジェクトを表示するコンポネント
+ *
+ * @returns JSX要素（ルーレットUI全体）
+ */
+export const RouletteObject: FC = memo(() => {
+  return (
+    <SRouletteObject>
+      <RouletteCircle />
+      <SRouletteResultGroup className="roulette-object">
+        <RouletteResult />
+        <SRouletteOptionList>
+          <RouletteOptionResult />
+          <RouletteOptionResult />
+          <RouletteOptionResult />
+          <RouletteOptionResult />
+        </SRouletteOptionList>
+      </SRouletteResultGroup>
+    </SRouletteObject>
+  );
+});
+
+const SRouletteObject = styled.div`
+  position: relative;
+`;
+
+const SRouletteResultGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  position: absolute;
+  top: 140px;
+  left: 90px;
+`;
+
+const SRouletteOptionList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+`;
