@@ -4,12 +4,15 @@ import { RouletteObject } from "../molecules/RouletteObject";
 import { RouletteButton } from "../atoms/RouletteButton";
 import styled from "styled-components";
 import { RouletteSettingButton } from "../atoms/RouletteSettingButton";
+import { useStartRoulette } from "../../hooks/useStartRoulette";
 
 type TopProps = {
   title: string;
 };
 
 export const TopLayout: FC<TopProps> = memo((props) => {
+  const { startRoulette, start } = useStartRoulette();
+
   return (
     <>
       {/* <p>{props.title}</p> */}
@@ -24,10 +27,10 @@ export const TopLayout: FC<TopProps> = memo((props) => {
               <RouletteSettingButton />
             </SResponsiveLink>
           </SResponsiveLayout>
-          <RouletteButton />
+          <RouletteButton start={start} startRoulette={startRoulette} />
         </SLeftLayout>
         <SRightLayout>
-          <RouletteObject />
+          <RouletteObject start={start} />
         </SRightLayout>
       </SPageLayout>
       <Footer />
@@ -57,8 +60,8 @@ const SPageLayout = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
+  padding: 3.6% 0;
   width: 100%;
-  height: 90vh;
 
   @media (max-width: 1000px) {
     flex-direction: column;

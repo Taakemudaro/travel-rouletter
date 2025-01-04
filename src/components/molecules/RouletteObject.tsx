@@ -8,12 +8,17 @@ import { RouletteCircle } from "../atoms/RouletteCircle";
  *
  * @returns JSX要素（ルーレットUI全体）
  */
-export const RouletteObject: FC = memo(() => {
+type Props = {
+  start: boolean;
+};
+
+export const RouletteObject: FC<Props> = memo((props) => {
+  const { start } = props;
   return (
     <SRouletteObject>
       <RouletteCircle />
       <SRouletteResultGroup className="roulette-object">
-        <RouletteResult />
+        <RouletteResult start={start} />
         <SRouletteOptionList>
           <RouletteOptionResult />
           <RouletteOptionResult />
