@@ -1,12 +1,25 @@
 import { FC, memo } from "react";
 import styled from "styled-components";
 
-export const RouletteButton: FC = memo(() => {
+type Props = {
+  startRoulette: () => void;
+  start: boolean;
+};
+
+export const RouletteButton: FC<Props> = memo((props) => {
+  const { startRoulette, start } = props;
+
   return (
-    <SRouletteButton type="button" className="start-roulette">
-      <span>ルーレット〜</span>
-      <SSpanStart>スタート!!</SSpanStart>
-    </SRouletteButton>
+    <>
+      <SRouletteButton
+        type="button"
+        className="start-roulette"
+        onClick={startRoulette}
+      >
+        <span>ルーレット〜</span>
+        <SSpanStart>{start ? "ストップ!!" : "スタート!!"}</SSpanStart>
+      </SRouletteButton>
+    </>
   );
 });
 
