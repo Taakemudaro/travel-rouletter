@@ -10,6 +10,11 @@ type TopProps = {
   title: string;
 };
 
+/**
+ * Topページ用のレイアウトテンプレートを表示するコンポネント
+ *
+ * @returns Topページ用のレイアウトテンプレートUIのJSX要素
+ */
 export const TopLayout: FC<TopProps> = memo((props) => {
   const { startRoulette, start } = useStartRoulette();
 

@@ -1,6 +1,11 @@
 import { FC, memo } from "react";
 import styled from "styled-components";
 
+/**
+ * Footerを表示するコンポネント
+ *
+ * @returns FooterUIのJSX要素
+ */
 export const Footer: FC = memo(() => {
   return (
     <SFooter>

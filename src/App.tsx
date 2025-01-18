@@ -4,16 +4,19 @@ import { BrowserRouter } from "react-router-dom";
 import { Router } from "./router/Router";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import theme from "./theme/theme";
+import { SelectedOptionProvider } from "./providers/SelectedOptionProvider";
 
 function App() {
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
-        <SGlobalStyle />
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-      </ThemeProvider>
+      <SelectedOptionProvider>
+        <ThemeProvider theme={theme}>
+          <SGlobalStyle />
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
+        </ThemeProvider>
+      </SelectedOptionProvider>
     </div>
   );
 }

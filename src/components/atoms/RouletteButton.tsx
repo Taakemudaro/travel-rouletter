@@ -6,6 +6,13 @@ type Props = {
   start: boolean;
 };
 
+/**
+ * ルーレットボタン(スタート・ストップ)を表示するコンポネント
+ *
+ * @param startRoulette ルーレットを開始、または停止する関数
+ * @param start ルーレットが動作中かを示すフラグ
+ * @returns {JSX.Element} ルーレットスタート・ストップボタンUIのJSX要素
+ */
 export const RouletteButton: FC<Props> = memo((props) => {
   const { startRoulette, start } = props;
 
@@ -38,6 +45,7 @@ const SRouletteButton = styled.button`
   font-size: 28px;
   font-weight: 700;
   transition: background-color 0.3s ease;
+  cursor: pointer;
   &:hover {
     background-color: ${(props) =>
       props.theme.styles.button.main.pointerBackGroundColor};
