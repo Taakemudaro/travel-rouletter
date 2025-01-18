@@ -3,26 +3,24 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 /**
- * ルーレット設定ページへ遷移するボタンを表示するコンポネント
+ * Topページへ遷移するボタンを表示するコンポネント
  *
- * @returns {JSX.Element} ルーレット設定ページへのリンクボタンUIのJSX要素
+ * @returns {JSX.Element} TopページへのリンクボタンUIのJSX要素
  */
-export const RouletteSettingButton: FC = memo(() => {
-  return (
-    <SLinkSetting to="/roulette-setting">
-      ルーレットの条件はこちらから設定してね！！
-    </SLinkSetting>
-  );
+export const TopButton: FC = memo(() => {
+  return <SLinkTop to="/">トップページに戻る</SLinkTop>;
 });
 
-const SLinkSetting = styled(Link)`
+const SLinkTop = styled(Link)`
+  display: inline-block;
   color: ${(props) => props.theme.styles.button.sub.color};
   background-color: ${(props) => props.theme.styles.button.sub.backgroundColor};
   text-decoration: none;
   text-align: center;
   border: 1px solid #110000;
   border-radius: 8px;
-  padding: 5px 18px;
+  width: 250px;
+  padding: 10px 18px;
   margin: 5px 0;
   font-size: 12px;
   font-weight: 700;
@@ -34,5 +32,6 @@ const SLinkSetting = styled(Link)`
 
   @media (max-width: 1000px) {
     font-size: 9px;
+    width: 180px;
   }
 `;

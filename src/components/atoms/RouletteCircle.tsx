@@ -1,6 +1,11 @@
 import { FC, memo } from "react";
 import styled from "styled-components";
 
+/**
+ * ルーレットの円形オブジェクトを表示するコンポネント
+ *
+ * @returns {JSX.Element} ルーレットの円形オブジェクトUIのJSX要素
+ */
 export const RouletteCircle: FC = memo(() => {
   return <SRouletteCircle className="roulette-cirle" />;
 });

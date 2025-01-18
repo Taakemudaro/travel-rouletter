@@ -1,29 +1,68 @@
-import { FC, memo } from "react";
+import { FC, memo, useState } from "react";
 import styled from "styled-components";
 import { RouletteOptionResult, RouletteResult } from "../atoms/RouletteResult";
 import { RouletteCircle } from "../atoms/RouletteCircle";
+import { prefectures } from "../../assets/data/rouletteOptionData/prefectures";
+import { themes } from "../../assets/data/rouletteOptionData/themes";
+import { useSelectedOption } from "../../hooks/useSelectedOption";
+import { durations } from "../../assets/data/rouletteOptionData/durations";
+import { costs } from "../../assets/data/rouletteOptionData/costs";
+import { municipalities } from "../../assets/data/rouletteOptionData/municipalities";
 
-/**
- * ルーレットオブジェクトを表示するコンポネント
- *
- * @returns JSX要素（ルーレットUI全体）
- */
 type Props = {
   start: boolean;
 };
 
+/**
+ * ルーレット結果の全体オブジェクトを表示するコンポネント
+ *
+ * @param start ルーレットが動作中かを示すフラグ
+ * @returns ルーレット結果を表示するオブジェクト全体UIのJSX要素
+ */
 export const RouletteObject: FC<Props> = memo((props) => {
   const { start } = props;
+  const { selectedOptions } = useSelectedOption();
+
+  const [selectedPrefecture, setSelectedPrefecture] = useState("");
+  const changePrefecture = (prefecture: string) => {
+    setSelectedPrefecture(prefecture);
+  };
+  const funcMunicipalities = municipalities();
+  const getPrefecture = funcMunicipalities.find(
+    (prefecture) => prefecture.prefecture === selectedPrefecture
+  );
+  const getCities = getPrefecture?.cities || [];
+
   return (
     <SRouletteObject>
       <RouletteCircle />
       <SRouletteResultGroup className="roulette-object">
-        <RouletteResult start={start} />
+        <RouletteResult
+          start={start}
+          values={prefectures}
+          changePrefecture={changePrefecture}
+        />
         <SRouletteOptionList>
-          <RouletteOptionResult />
-          <RouletteOptionResult />
-          <RouletteOptionResult />
-          <RouletteOptionResult />
+          <RouletteOptionResult
+            start={start}
+            selectedOption={selectedOptions.city}
+            values={getCities}
+          />
+          <RouletteOptionResult
+            start={start}
+            selectedOption={selectedOptions.theme}
+            values={themes}
+          />
+          <RouletteOptionResult
+            start={start}
+            selectedOption={selectedOptions.duration}
+            values={durations}
+          />
+          <RouletteOptionResult
+            start={start}
+            selectedOption={selectedOptions.cost}
+            values={costs}
+          />
         </SRouletteOptionList>
       </SRouletteResultGroup>
     </SRouletteObject>
