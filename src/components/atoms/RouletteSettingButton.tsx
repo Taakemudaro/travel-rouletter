@@ -10,7 +10,8 @@ import styled from "styled-components";
 export const RouletteSettingButton: FC = memo(() => {
   return (
     <SLinkSetting to="/roulette-setting">
-      ルーレットの条件はこちらから設定してね！！
+      <SSpan>ルーレットの条件は</SSpan>
+      <SSpan>こちらから設定してね！！</SSpan>
     </SLinkSetting>
   );
 });
@@ -34,5 +35,12 @@ const SLinkSetting = styled(Link)`
 
   @media (max-width: 1000px) {
     font-size: 9px;
+    padding: 5px 35px;
+  }
+`;
+
+const SSpan = styled.span`
+  @media (max-width: 1000px) {
+    display: block;
   }
 `;

@@ -4,7 +4,7 @@ import { TopButton } from "../atoms/TopButton";
 import { Footer } from "../organisms/Footer";
 
 type Props = {
-  // title: string;
+  title: string;
   children: ReactNode;
 };
 
@@ -15,7 +15,7 @@ type Props = {
  * @returns ページのレイアウトテンプレートUIのJSX要素
  */
 export const BasicLayout: FC<Props> = memo((props) => {
-  const { children } = props;
+  const { title, children } = props;
   return (
     <>
       {/* <p>{props.title}</p> */}
@@ -23,8 +23,8 @@ export const BasicLayout: FC<Props> = memo((props) => {
         <SLeftLayout>
           <SResponsiveLayout>
             <SResponsiveLogo>
-              <SMainLogo src="#" alt="main-logo" />
-              <SSubLogo src="#" alt="sub-logo" />
+              <SMainLogo src="/travel-rouletter-logo.png" alt="main-logo" />
+              <SSubLogo src="/travel-rouletter-sub-logo.png" alt="sub-logo" />
             </SResponsiveLogo>
             <SResponsiveLink>
               <TopButton />
@@ -32,7 +32,7 @@ export const BasicLayout: FC<Props> = memo((props) => {
           </SResponsiveLayout>
         </SLeftLayout>
         <SRightLayout>
-          <Stitle>ルーレットのオプション設定</Stitle>
+          <Stitle>{title}</Stitle>
           {children}
         </SRightLayout>
       </SPageLayout>
@@ -62,7 +62,7 @@ const SResponsiveLogo = styled.div`
 const SPageLayout = styled.div`
   display: flex;
   flex: 1;
-  padding: 3.6% 0;
+  padding: 35px 0 1% 0;
   width: 100%;
 
   @media (max-width: 1000px) {
@@ -75,7 +75,7 @@ const SLeftLayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 4.5% 20px 3.6% 130px;
+  padding: 79px 20px 3.6% 12.9%;
   width: 37%;
 
   @media (max-width: 1000px) {
@@ -88,44 +88,40 @@ const SLeftLayout = styled.div`
 const SRightLayout = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 27px 180px 0 20px;
+  align-items: flex-start;
+  margin: 80px 75px 0 75px;
   width: 64%;
 
   @media (max-width: 1000px) {
-    width: 80%;
-    margin: 0 auto;
+    width: 65%;
+    margin: 30px auto 0 auto;
   }
 `;
 
 const SMainLogo = styled.img`
   display: inline-block;
-  background-color: #808080;
-  padding: 90px 100px;
-  margin: 0 0 15px 0;
+  width: 315px;
+  margin-bottom: 60px;
 
   @media (max-width: 1000px) {
-    padding: 25px 30px;
-    margin-right: 20px;
-    width: 35%;
+    width: 150px;
+    margin: 0 15px 20px 0;
   }
 `;
 
 const SSubLogo = styled.img`
   display: inline-block;
   background-color: #808080;
-  padding: 60px 100px;
   margin: 0 0 15px 0;
+  width: 320px;
 
   @media (max-width: 1000px) {
-    padding: 25px 30px;
-    width: 35%;
+    width: 150px;
+    height: auto;
   }
 `;
 
 const Stitle = styled.h1`
-  display: block;
-  align-items: center;
-  text-align: center;
+  text-align: left;
   font-size: 25px;
 `;

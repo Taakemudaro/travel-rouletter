@@ -16,6 +16,10 @@ const theme = {
         pointerBackGroundColor: "#ff4500",
       },
     },
+    link: {
+      color: "#640303",
+      pointerColor: "#9d2d2d",
+    },
   },
 };
 
