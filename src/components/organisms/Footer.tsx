@@ -9,9 +9,13 @@ import styled from "styled-components";
 export const Footer: FC = memo(() => {
   return (
     <SFooter>
-      <img src="#" alt="footer-logo" />
-      <SFooterSmall>&copy; 2025 Yuki-TravelMap</SFooterSmall>
-      <a href="/terms-of-use">利用規約</a>
+      <SMainLogo src="/travel-rouletter-logo.png" alt="footer-logo" />
+      <SFooterSmall>
+        &copy; 2025{" "}
+        <SLink href="https://yuki-travelmap.com/">Yuki-TravelMap</SLink>
+      </SFooterSmall>
+      {/* 一旦コメントアウト */}
+      {/* <SLink href="/terms-of-use">利用規約</SLink> */}
     </SFooter>
   );
 });
@@ -26,4 +30,15 @@ const SFooter = styled.div`
 
 const SFooterSmall = styled.small`
   margin: 4px 20px 4px 20px;
+`;
+
+const SLink = styled.a`
+  color: ${(props) => props.theme.styles.link.color};
+  &:hover {
+    color: ${(props) => props.theme.styles.link.pointerColor};
+  }
+`;
+
+const SMainLogo = styled.img`
+  width: 60px;
 `;

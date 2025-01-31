@@ -1,5 +1,4 @@
 import { FC, memo } from "react";
-import { Footer } from "../organisms/Footer";
 
 /**
  * 利用方法ページを表示するコンポネント

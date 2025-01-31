@@ -3,7 +3,7 @@ export const rouletteOptionData = [
     id: "city",
     name: "city",
     htmlFor: "city",
-    children: "市区町村",
+    children: "　エリア",
   },
   {
     id: "theme",

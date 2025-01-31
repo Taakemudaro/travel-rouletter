@@ -19,7 +19,7 @@ export const RouletteSetting: FC = memo(() => {
           オプションを使用してルーレットをまわしたい場合は、下記のプルダウンをONにしてね!!
         </SDescription>
       </div>
-      <div>
+      <SRouletteOptions>
         {rouletteOptionData.map((option) => (
           <RouletteOptionObject
             id={option.id}
@@ -28,7 +28,7 @@ export const RouletteSetting: FC = memo(() => {
             children={option.children}
           />
         ))}
-      </div>
+      </SRouletteOptions>
     </div>
   );
 });
@@ -36,4 +36,8 @@ export const RouletteSetting: FC = memo(() => {
 const SDescription = styled.p`
   text-align: left;
   line-height: 1;
+`;
+
+const SRouletteOptions = styled.div`
+  margin-top: 60px;
 `;

@@ -49,11 +49,18 @@ export const RouletteOptionObject: FC<RouletteOption> = memo((props) => {
 const SLabel = styled.label`
   display: inline-block;
   font-size: 23px;
-  margin: 0 10px 20px 0;
+  margin: 0 20px 20px 0;
+  @media (max-width: 1000px) {
+    font-size: 20px;
+    margin-right: 15px;
+  }
 `;
 
 const SSelect = styled.select`
   font-size: 20px;
   padding: 0 12px;
   border-radius: 10px;
+  @media (max-width: 1000px) {
+    font-size: 16px;
+  }
 `;
